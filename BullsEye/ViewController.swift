@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         startNewRound()
+		updateLabels()
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
         startNewRound()
+		updateLabels()
     }
     
     @IBAction func sliderMoved(_ slider: UISlider) {
@@ -49,7 +51,9 @@ class ViewController: UIViewController {
         targetValue = 1 + Int(arc4random_uniform(100))
         slider.value = Float(currentValue)
     }
-    
-    
+	func updateLabels(){
+		targetLabel.text = String(targetValue)
+	}
+	
 }
 
